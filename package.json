@@ -5,8 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon",
-    "build": "rimraf ./build && tsc",
+    "start:db": "docker-compose up -d",
     "start:prod": "yarn build && node build/index",
+    "build": "rimraf ./build && tsc",
     "eslint:check": "eslint . --ignore-path .gitignore",
     "eslint:fix": "eslint . --fix --ignore-path .gitignore",
     "prettier:check": "prettier --check . --ignore-path .gitignore",

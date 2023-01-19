@@ -4,6 +4,7 @@ import compression from 'compression';
 
 import environment from 'environment';
 import router from 'router';
+import './shutdown';
 
 const app = express();
 
