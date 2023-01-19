@@ -1,16 +1,13 @@
 import 'reflect-metadata';
-import express from 'express';
-import compression from 'compression';
 
+import logger from './utils/logger'; // configure logger
 import environment from 'environment';
 import router from 'router';
 import './shutdown';
+import { initApp } from 'utils';
 
-const app = express();
-
-app.use(compression());
-app.use(router);
+const app = initApp(router);
 
 app.listen(environment.PORT, () => {
-  console.log(`Server started on port ${environment.PORT}`);
+  logger.info(`Server started on port ${environment.PORT}`);
 });

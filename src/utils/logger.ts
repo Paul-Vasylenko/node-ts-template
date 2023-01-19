@@ -1,4 +1,4 @@
-import { Log, LogClass, setConfig } from 'class-logger';
+import { setConfig } from 'class-logger';
 import environment from 'environment';
 import winston, { format, transports } from 'winston';
 
@@ -43,6 +43,7 @@ setConfig({
   logError: logger.error.bind(logger),
   include: {
     args: false,
+    construct: false,
   },
 });
 
