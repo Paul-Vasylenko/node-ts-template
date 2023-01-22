@@ -1,17 +1,12 @@
 export default class ApiError extends Error {
   constructor(
-    public code: string = CommonErrors.INTERNAL_SERVER_ERROR,
+    public code: string = 'INTERNAL_SERVER_ERROR',
     public status = HttpStatuses.INTERNAL,
     message = 'Internal server error',
     public payload?: unknown,
   ) {
     super(message);
   }
-}
-
-export enum CommonErrors {
-  INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
-  INVALID_REQUEST = 'INVALID_REQUEST',
 }
 
 export enum HttpStatuses {
