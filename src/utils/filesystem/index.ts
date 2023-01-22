@@ -1,40 +1,19 @@
-import { type ReadStream } from "fs";
+import environment from "environment";
+import LocalFileSystem from "./local";
+import { FS } from "./types";
 
-interface Stats {
-    name: string;
-    size: number;
-    owner: number;
-    createdAt: number;
-    updatedAt: number;
+function getFileSystem() {
+    switch(environment.FS){
+        case FS.LOCAL:
+            return LocalFileSystem
+        case FS.S3:
+        default:
+            return LocalFileSystem
+    }
 }
 
-export interface FileSystemOperator {
-    // get relative path
-    relative(way: string): string;
+const fs = getFileSystem();
+export default fs;
 
-    // create folder if not exists
-    init(folder: string): Promise<void>;
 
-    // check if path exists
-    exists(file: string): Promise<boolean>
-
-    // copy file from to
-    copy(source: string, target: string): Promise<void>
-
-    // remove file
-    remove(file: string): Promise<void>
-
-    // move file from to
-    move(source: string, target: string): Promise<void>
-
-    // read file and get ReadStream
-    getStream(file: string): Promise<ReadStream>
-
-    // write content to a file
-    write(file: string, content: string): Promise<void>
-
-    uploadFile(nativePath: string, remotePath: string): Promise<void>
-
-    list(folder: string): Promise<Stats[]>
-}
 

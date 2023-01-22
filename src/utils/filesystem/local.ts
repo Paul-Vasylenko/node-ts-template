@@ -3,10 +3,10 @@ import fs from 'fs-extra';
 import path from 'path';
 import { Stream } from 'stream';
 import { isStream } from 'utils/checkers';
-import { FileSystemOperator } from '.';
+import { FileSystemOperator } from './types';
 
 @LogClass()
-class LocalFileSystem implements FileSystemOperator{
+class LocalFileSystem implements FileSystemOperator {
   private location: string;
 
   constructor({ folder = './tmp' } = {}) {
