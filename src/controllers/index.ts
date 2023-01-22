@@ -12,7 +12,7 @@ export default class BaseController {
       res.status(status).end();
       return;
     }
-    
+
     logger.notice('Service send response', { data });
     res.status(status).json({ data }).end();
   }

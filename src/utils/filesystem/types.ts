@@ -1,44 +1,46 @@
-import { type ReadStream } from "fs";
+import { type ReadStream } from 'fs';
 
 export enum FS {
-    LOCAL = 'local',
-    S3 = 's3'
+  LOCAL = 'local',
+  S3 = 's3',
 }
 
 export interface Stats {
-    name: string;
-    size: number;
-    owner: number;
-    createdAt: number;
-    updatedAt: number;
+  name: string;
+  size: number;
+  owner: number;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface FileSystemOperator {
-    // get relative path
-    relative(way: string): string;
+  location: string;
 
-    // create folder if not exists
-    init(folder: string): Promise<void>;
+  // get relative path
+  relative(way: string): string;
 
-    // check if path exists
-    exists(file: string): Promise<boolean>
+  // create folder if not exists
+  init(folder: string): Promise<void>;
 
-    // copy file from to
-    copy(source: string, target: string): Promise<void>
+  // check if path exists
+  exists(file: string): Promise<boolean>;
 
-    // remove file
-    remove(file: string): Promise<void>
+  // copy file from to
+  copy(source: string, target: string): Promise<void>;
 
-    // move file from to
-    move(source: string, target: string): Promise<void>
+  // remove file
+  remove(file: string): Promise<void>;
 
-    // read file and get ReadStream
-    getStream(file: string): Promise<ReadStream>
+  // move file from to
+  move(source: string, target: string): Promise<void>;
 
-    // write content to a file
-    write(file: string, content: string): Promise<void>
+  // read file and get ReadStream
+  getStream(file: string): Promise<ReadStream>;
 
-    uploadFile(nativePath: string, remotePath: string): Promise<void>
+  // write content to a file
+  write(file: string, content: string): Promise<void>;
 
-    list(folder: string): Promise<Stats[]>
+  uploadFile(nativePath: string, remotePath: string): Promise<void>;
+
+  list(folder: string): Promise<Stats[]>;
 }

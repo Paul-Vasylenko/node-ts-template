@@ -7,7 +7,7 @@ const environment = envalid.cleanEnv(process.env, {
   PORT: envalid.num(),
   LOG_LEVEL: envalid.str(),
   FS: envalid.str({ choices: [FS.LOCAL, FS.S3] }),
-  FS_FOLDER: envalid.str()
+  FS_FOLDER: envalid.str(),
 });
 
 export default environment;

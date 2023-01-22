@@ -23,11 +23,6 @@
     "Node.JS",
     "TS"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
   "private": true,
   "author": "Paul Vasylenko",
   "license": "ISC",

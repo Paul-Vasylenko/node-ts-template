@@ -8,7 +8,7 @@ import { FileSystemOperator } from './types';
 
 @LogClass()
 class LocalFileSystem implements FileSystemOperator {
-  private location: string;
+  public location: string;
 
   constructor({ folder = './tmp' } = {}) {
     this.location = folder;
@@ -106,7 +106,6 @@ class LocalFileSystem implements FileSystemOperator {
   }
 }
 
-
 export default new LocalFileSystem({
-  folder: environment.FS_FOLDER
+  folder: environment.FS_FOLDER,
 });
