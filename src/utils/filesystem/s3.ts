@@ -5,7 +5,7 @@ import { Stream } from 'stream';
 import { isStream } from 'utils/checkers';
 
 @LogClass()
-class FileSystem {
+class LocalFileSystem {
   private location: string;
 
   constructor({ folder = './tmp' } = {}) {
@@ -103,3 +103,6 @@ class FileSystem {
     );
   }
 }
+
+
+export default LocalFileSystem;
