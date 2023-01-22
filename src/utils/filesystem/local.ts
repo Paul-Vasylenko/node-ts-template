@@ -1,4 +1,5 @@
 import { Log, LogClass } from 'class-logger';
+import environment from 'environment';
 import fs from 'fs-extra';
 import path from 'path';
 import { Stream } from 'stream';
@@ -106,4 +107,6 @@ class LocalFileSystem implements FileSystemOperator {
 }
 
 
-export default LocalFileSystem;
+export default new LocalFileSystem({
+  folder: environment.FS_FOLDER
+});

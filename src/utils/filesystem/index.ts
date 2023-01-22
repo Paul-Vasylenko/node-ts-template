@@ -7,6 +7,7 @@ function getFileSystem() {
         case FS.LOCAL:
             return LocalFileSystem
         case FS.S3:
+            // Add if using
         default:
             return LocalFileSystem
     }
