@@ -18,3 +18,12 @@ export enum HttpStatuses {
   NOT_FOUND = 404,
   INTERNAL = 500,
 }
+
+export function dumpError(error: ApiError) {
+  return {
+    code: error.code,
+    message: error.message,
+    payload: error.payload,
+    status: 0,
+  };
+}

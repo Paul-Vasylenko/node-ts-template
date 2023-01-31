@@ -1,5 +1,5 @@
-import { exampleController } from 'controllers';
 import { Router } from 'express';
+import { exampleController } from 'features';
 
 const router = Router();
 

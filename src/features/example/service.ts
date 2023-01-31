@@ -1,6 +1,5 @@
-import BaseService from 'services';
-
-class ExampleService extends BaseService {
+import { Service } from 'system';
+class ExampleService extends Service {
   public async exampleEntities() {
     return [
       {

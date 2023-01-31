@@ -1,7 +1,7 @@
 import { type NextFunction, type Response } from 'express';
 import { HttpStatuses, logger } from 'utils';
 
-export default class BaseController {
+export default class Controller {
   protected sendError(next: NextFunction, error: unknown) {
     next(error);
   }
@@ -17,5 +17,3 @@ export default class BaseController {
     res.status(status).json({ data }).end();
   }
 }
-
-export { default as exampleController } from './example';
